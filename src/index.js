@@ -1,23 +1,19 @@
-// London
-let londonElement = document.querySelector("#london");
-let londonDateElement = londonElement.querySelector(".date");
-let londontimeElement = londonElement.querySelector(".time");
+function displayTimes(city) {
+  let element = document.querySelector(`#${city}`);
+  let dateElement = element.querySelector(".date");
+  let timeElement = element.querySelector(".time");
 
-londonDateElement.innerHTML = moment()
-  .tz("Europe/London")
-  .format("MMMM Do YYYY");
-londontimeElement.innerHTML = moment()
-  .tz("Europe/London")
-  .format("h:mm:ss [<small>]A[</small>]");
+  if (city === `london`) {
+    timeZone = "Europe/London";
+  } else if (city === `chicago`) {
+    timeZone = "America/Chicago";
+  }
 
-// Chicago
-let chicagoElement = document.querySelector("#chicago");
-let chicagoDateElement = chicagoElement.querySelector(".date");
-let chicagotimeElement = chicagoElement.querySelector(".time");
+  dateElement.innerHTML = moment().tz(timeZone).format("MMMM Do YYYY");
+  timeElement.innerHTML = moment()
+    .tz(timeZone)
+    .format("h:mm:ss [<small>]A[</small>]");
+}
 
-chicagoDateElement.innerHTML = moment()
-  .tz("America/chicago")
-  .format("MMMM Do YYYY");
-chicagotimeElement.innerHTML = moment()
-  .tz("America/chicago")
-  .format("h:mm:ss [<small>]A[</small>]");
+displayTimes(`london`);
+displayTimes(`chicago`);
