@@ -15,5 +15,11 @@ function displayTimes(city) {
     .format("h:mm:ss [<small>]A[</small>]");
 }
 
-displayTimes(`london`);
-displayTimes(`chicago`);
+function updateTimes() {
+  displayTimes(`london`);
+  displayTimes(`chicago`);
+}
+
+updateTimes();
+
+setInterval(updateTimes, 1000);
