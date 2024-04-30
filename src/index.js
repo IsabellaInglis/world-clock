@@ -7,6 +7,10 @@ function displayTimes(city) {
     timeZone = "Europe/London";
   } else if (city === `chicago`) {
     timeZone = "America/Chicago";
+  } else if (city === `amsterdam`) {
+    timeZone = "Europe/Amsterdam";
+  } else if (city === `tokyo`) {
+    timeZone = "Asia/Tokyo";
   }
 
   dateElement.innerHTML = moment().tz(timeZone).format("MMMM Do YYYY");
@@ -19,6 +23,8 @@ function displayTimes(city) {
 function updateTimes() {
   displayTimes(`london`);
   displayTimes(`chicago`);
+  displayTimes(`amsterdam`);
+  displayTimes(`tokyo`);
 }
 
 updateTimes();
@@ -27,6 +33,9 @@ setInterval(updateTimes, 1000);
 
 function updateCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
   let cityName = cityTimeZone.split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector(".cities");
