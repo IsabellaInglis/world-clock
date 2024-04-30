@@ -27,6 +27,11 @@ footer {
   font-size: 12px;
 }
 
+a {
+  font-size: 12px;
+  padding: 0 10px;
+}
+
 .main-container {
   background: white;
   max-width: 400px;
